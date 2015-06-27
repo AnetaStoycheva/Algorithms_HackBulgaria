@@ -1,15 +1,18 @@
-def insertion_sort(sequence):
+class InsertionSort:
 
-    for next_unsorted in range(len(sequence)):
-        index = next_unsorted
+    @staticmethod
+    def insertion_sort(sequence):
 
-        while index > 0 and sequence[index] < sequence[index - 1]:
-            sequence[index - 1], sequence[index] = sequence[index], sequence[index - 1]
-            index -= 1
+        for next_unsorted in range(len(sequence)):
+            index = next_unsorted
 
-    return sequence
+            while index > 0 and sequence[index] < sequence[index - 1]:
+                sequence[index - 1], sequence[index] = sequence[index], sequence[index - 1]
+                index -= 1
+
+        return sequence
 
 
-a = [8, 10, 3, 7, 13, 2, 42, 6]
+a = [8, 10, 3, 7, 13, 0, -5, 2, 42, 6, 8]
 
-print(insertion_sort(a))
+print(InsertionSort.insertion_sort(a))
