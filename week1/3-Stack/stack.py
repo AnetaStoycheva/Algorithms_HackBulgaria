@@ -9,9 +9,13 @@ class Stack:
     def __init__(self):
         self.values = Queue()
 
+    # Adds value to the end of the Stack.
+    # Complexity: O(1)
     def push(self, value):
         self.values.push(value)
 
+    # Returns value from the end of the Stack and removes it.
+    # Complexity: O(1)
     def pop(self):
         q = Queue()
         while self.values.size > 1:
@@ -23,6 +27,8 @@ class Stack:
 
         return last_element
 
+    # Returns value from the end of the Stack without removing it.
+    # Complexity: O(1)
     def peek(self):
         if self.values.size >= 1:
             last_element = self.pop()
@@ -32,6 +38,8 @@ class Stack:
         else:
             return None
 
+    # Returns the number of elements in the Stack.
+    # Complexity: O(1)
     def size(self):
         return self.values.size
 

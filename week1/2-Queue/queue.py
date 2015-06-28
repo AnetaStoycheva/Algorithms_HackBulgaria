@@ -43,10 +43,14 @@ class Queue:
         self.values = LinkedList()
         self.size = 0
 
+    # Adds value to the end of the Queue.
+    # Complexity: O(1)
     def push(self, value):
         self.values.add_at_the_end(value)
         self.size += 1
 
+    # Returns value from the front of the Queue and removes it.
+    # Complexity: O(1)
     def pop(self):
         if self.size >= 1:
             self.size -= 1
@@ -55,12 +59,16 @@ class Queue:
 
         return self.values.remove_from_beginning()
 
+    # Returns value from the front of the Queue without removing it.
+    # Complexity: O(1)
     def peek(self):
         if self.size >= 1:
             return self.values.head.value
         else:
             return None
 
+    # Returns the number of elements in the Queue.
+    # Complexity: O(1)
     def size(self):
         return self.size
 

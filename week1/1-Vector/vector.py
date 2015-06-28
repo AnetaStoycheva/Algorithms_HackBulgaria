@@ -1,16 +1,23 @@
 class Vector:
+
     def __init__(self, capacity):
         self.vector = [None] * capacity
         self.capacity = capacity
         self.size = 0
 
-    def vector_size(self):
+    # Returns the number of elements in the Vector.
+    # Complexity: O(1)
+    def size(self):
         return self.size
 
-    def vector_capacity(self):
+    # Returns the total capacity of the Vector.
+    # Complexity: O(1)
+    def capacity(self):
         return self.capacity
 
-    def insert_at_specific_index(self, index, value):
+    # Adds value at a specific index in the Vector.
+    # Complexity: O(n)
+    def insert(self, index, value):
         if self.size >= self.capacity:
             self.vector = self.vector + self.capacity * [None]
             self.capacity *= 2
@@ -21,7 +28,9 @@ class Vector:
         self.vector[index] = value
         self.size += 1
 
-    def add_at_the_end(self, value):
+    # Adds value to the end of the Vector.
+    # Complexity: O(1)
+    def add(self, value):
         if self.size >= self.capacity:
             self.vector = self.vector + self.capacity * [None]
             self.capacity *= 2
@@ -29,13 +38,17 @@ class Vector:
         self.vector[self.size] = value
         self.size += 1
 
-    def return_value_specific_index(self, index):
+    # Returns value at a specific index in the Vector
+    # Complexity: O(1)
+    def get(self, index):
         if index < self.size and index >= 0:
             return self.vector[index]
         else:
             raise IndexError('Index {} out of bounds.'.format(index))
 
-    def remove_from_specific_index(self, index):
+    # Removes element at the specific index
+    # Complexity: O(n)
+    def remove(self, index):
         if index < self.size and index >= 0:
             for i in range(index, self.size - 1):
                 self.vector[i] = self.vector[i + 1]
@@ -44,7 +57,9 @@ class Vector:
         else:
             raise IndexError('Index {} out of bounds.'.format(index))
 
-    def remove_at_last_index(self):
+    # Removes element at the last index
+    # Complexity: O(1)
+    def pop(self):
         if self.size > 0:
             self.vector[self.size - 1] = None
             self.size -= 1
@@ -54,24 +69,24 @@ class Vector:
 
 def main():
     a = Vector(4)
-    print(a.vector_size())
-    print(a.vector_capacity())
+    print(a.size())
+    print(a.capacity())
     for i in range(1000001):
-        a.add_at_the_end('a')
+        a.add('a')
 
-    a.insert_at_specific_index(2, 10)
+    a.insert(2, 10)
     # for index in range(a.size):
-    #     print(a.return_value_specific_index(index))
-    # print(a.vector_size())
-    # print(a.vector_capacity())
-    a.remove_at_last_index()
+    #     print(a.get(index))
+    # print(a.size())
+    # print(a.capacity())
+    a.pop()
     # for index in range(a.size):
-    #     print(a.return_value_specific_index(index))
-    a.remove_from_specific_index(1)
+    #     print(a.get(index))
+    a.remove(1)
     # for index in range(a.size):
-    #     print(a.return_value_specific_index(index))
-    print(a.vector_size())
-    print(a.vector_capacity())
+    #     print(a.get(index))
+    print(a.size())
+    print(a.capacity())
 
 
 if __name__ == '__main__':
