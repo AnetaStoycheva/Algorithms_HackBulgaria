@@ -3,6 +3,8 @@ class PhoneBook:
     # Find the names of people based on their phone numbers.
     # phone_book - [(String, int)]
     # numbers - [int]
+
+    @staticmethod
     def lookup_names(phone_book, numbers):
         phone_book.sort(key=lambda element: element[-1])
 
@@ -27,7 +29,36 @@ class PhoneBook:
 
         return result
 
-a = [('a', 0), ('a', 2), ('Stani', 1), ('Rado', 5), ('Ivan', 6), ('Ivan', 8)]
-b = [2, 15, 8]
 
-print(PhoneBook.lookup_names(a, b))
+def main():
+    n_m = input()
+    n_and_m = n_m.split(' ')
+    N = int(n_and_m[0])
+    M = int(n_and_m[-1])
+
+    phone_book = []
+    numbers = []
+
+    while N != 0:
+        contacts = input()
+        ph = contacts.split(' ')
+        phone_number = int(ph[0])
+        name = ph[1]
+        phone_book.append((name, phone_number))
+
+        N -= 1
+
+    while M != 0:
+        a = int(input())
+        numbers.append(a)
+
+        M -= 1
+
+    result = PhoneBook.lookup_names(phone_book, numbers)
+
+    for item in result:
+        print(item)
+
+
+if __name__ == '__main__':
+    main()

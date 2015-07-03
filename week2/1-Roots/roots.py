@@ -2,7 +2,7 @@ class Roots:
 
     # Finds the square root of a number using binary search.
     # number - int
-    def square_root(number):
+    def square_root(self, number):
         left = 0
         right = number
 
@@ -16,13 +16,10 @@ class Roots:
         return middle
 
 
-result1 = Roots.square_root(15)
-result2 = Roots.square_root(2)
-result3 = Roots.square_root(4)
-result4 = Roots.square_root(5)
+def main():
+    number = int(input())
+    print('%.5f' % Roots().square_root(number))
 
-print('%.5f' % result1)
-print('%.5f' % result2)
-print('%.5f' % result3)
-print('%.5f' % result4)
-print(result4)
+
+if __name__ == '__main__':
+    main()
