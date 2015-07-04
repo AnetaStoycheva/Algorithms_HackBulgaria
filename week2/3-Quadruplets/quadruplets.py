@@ -8,6 +8,7 @@ class Quadruplets:
 
     # sort lists with merge or quick sort
 
+    @staticmethod
     def zero_quadruplets_count(a, b, c, d):
         left_sums = []
         right_sums = []
@@ -46,9 +47,21 @@ class Quadruplets:
 
         return result
 
-a = [5, 3, 4]
-b = [-2, -1, 6]
-c = [-1, -2, 4]
-d = [-1, -2, 7]
 
-print(Quadruplets.zero_quadruplets_count(a, b, c, d))
+def main():
+    N = int(input())
+
+    res = [[], [], [], []]
+
+    for a in range(len(res)):
+        line = input()
+        elements = line.split(' ')
+
+        for element in elements:
+            res[a].append(int(element))
+
+    print(Quadruplets.zero_quadruplets_count(res[0], res[1], res[2], res[3]))
+
+
+if __name__ == '__main__':
+    main()
