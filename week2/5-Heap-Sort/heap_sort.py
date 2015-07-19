@@ -74,6 +74,23 @@ class HeapSort:
 
         return result
 
-a = [4, 13, 52, 7, 18, 2, 3, 1, 6, -9, 0, 3, 3]
 
-print(HeapSort.sort(a))
+def main():
+    N = int(input())
+    M = input()
+    a = M.split(' ')
+    sequence = []
+
+    for number in a:
+        sequence.append(int(number))
+
+    result = HeapSort.sort(sequence)
+
+    for item in range(len(sequence) - 1):
+        print(result[item], end=' ')
+
+    print(result[-1])
+
+
+if __name__ == '__main__':
+    main()

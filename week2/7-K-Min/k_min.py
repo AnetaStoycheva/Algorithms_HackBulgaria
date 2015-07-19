@@ -80,6 +80,22 @@ class KMin:
         return heap.pop()
 
 
-print(KMin.kthMinimum([11, -9, 5, 2, 3, 6, 1, 4], 1))
-print(KMin.kthMinimum([5, 2, 3, 6, 1, 4], 3))
-print(KMin.kthMinimum([5, 2, 3, 6, 1, 4, 8], 7))
+# da se opravi vhoda s pop()
+def main():
+    first = input()
+    f = first.split()
+    N = int(f[0])
+    k = int(f[-1])
+    vector = input()
+    v = vector.split()
+
+    numbers = []
+
+    for number in v:
+        numbers.append(int(number))
+
+    print(KMin.kthMinimum(numbers, k))
+
+
+if __name__ == '__main__':
+    main()

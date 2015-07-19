@@ -54,7 +54,7 @@ class Heap:
                 (self.heap[Heap.left(index)] < self.heap[index] or
                     self.heap[Heap.right(index)] < self.heap[index])):
 
-            if self.heap[Heap.left(index)] <= self.heap[Heap.right(index)]:
+            if self.heap[Heap.left(index)] < self.heap[Heap.right(index)]:
                 next_index = Heap.left(index)
             else:
                 next_index = Heap.right(index)
@@ -100,8 +100,31 @@ class KLists:
         return result
 
 
-o = Node(3, Node(5, Node(7, Node(9, None))))
-p = Node(2, Node(4, Node(6, None)))
-q = Node(0, Node(1, Node(8, Node(10, None))))
+def main():
+    K = int(input())
+    lists = []
 
-print(KLists.merge([o, p, q]))
+    while K != 0:
+        n = input()
+        numbers = n.split()
+        new_list = []
+        for number in range(len(numbers) - 1):
+            new_list.append(int(numbers[number]))
+
+        head = None
+        for item in range(len(new_list) - 1, -1, -1):
+            head = Node(new_list[item], head)
+
+        K -= 1
+        lists.append(head)
+
+    result = KLists.merge(lists)
+
+    for item in range(len(result) - 1):
+        print(result[item], end=' ')
+
+    print(result[-1])
+
+
+if __name__ == '__main__':
+    main()
